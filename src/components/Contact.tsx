@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
-import { MagneticButton } from "./MagneticButton";
+
 
 const EMAIL = "jayeshneo07@gmail.com";
 const WHATSAPP = "https://wa.me/919999999999?text=Hi%20Jayesh%2C%20I%20saw%20your%20portfolio%20and%20I%20am%20interested%20in%20your%20services";
@@ -17,50 +17,50 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative px-5 py-32">
+    <section id="contact" className="relative px-5 py-20 sm:py-28 md:py-32">
       <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-[2.5rem] glass-strong p-8 md:p-14"
+          className="relative overflow-hidden rounded-3xl glass-strong p-6 sm:rounded-[2.5rem] sm:p-10 md:p-14"
           style={{ boxShadow: "var(--shadow-glow-purple)" }}
         >
           <div
-            className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-50 blur-[100px]"
+            className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-50 blur-[100px] sm:h-80 sm:w-80"
             style={{ background: "var(--neon-purple)" }}
           />
           <div
-            className="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full opacity-40 blur-[100px]"
+            className="pointer-events-none absolute -bottom-20 -left-20 h-60 w-60 rounded-full opacity-40 blur-[100px] sm:h-80 sm:w-80"
             style={{ background: "var(--neon-blue)" }}
           />
 
-          <div className="relative grid gap-12 md:grid-cols-2">
+          <div className="relative grid gap-8 md:grid-cols-2 md:gap-12">
             <div>
-              <div className="mb-3 inline-block rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
+              <div className="mb-3 inline-block rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:text-[11px]">
                 Get in touch
               </div>
-              <h2 className="text-balance text-4xl font-bold leading-[1.05] md:text-5xl">
+              <h2 className="text-balance text-3xl font-bold leading-[1.05] sm:text-4xl md:text-5xl">
                 Let's build something <span className="gradient-text">powerful</span>.
               </h2>
-              <p className="mt-5 max-w-md text-muted-foreground">
+              <p className="mt-4 max-w-md text-sm text-muted-foreground sm:mt-5 sm:text-base">
                 Have an idea, a product, or a problem worth solving? Drop a message and I usually reply within a few hours.
               </p>
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-6 space-y-3 sm:mt-8">
                 <a
                   href={`mailto:${EMAIL}`}
                   data-cursor="hover"
-                  className="group flex items-center gap-3 rounded-2xl glass p-4 transition-colors hover:bg-white/10"
+                  className="group flex items-center gap-3 rounded-2xl glass p-3.5 transition-colors hover:bg-white/10 sm:p-4"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl"
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
                     style={{ background: "var(--neon-purple)", boxShadow: "0 0 20px var(--neon-purple)" }}>
                     <Mail className="h-4 w-4 text-white" />
                   </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">Email</div>
-                    <div className="text-sm font-medium">{EMAIL}</div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Email</div>
+                    <div className="truncate text-xs font-medium sm:text-sm">{EMAIL}</div>
                   </div>
                 </a>
                 <a
@@ -68,32 +68,38 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor="hover"
-                  className="group flex items-center gap-3 rounded-2xl glass p-4 transition-colors hover:bg-white/10"
+                  className="group flex items-center gap-3 rounded-2xl glass p-3.5 transition-colors hover:bg-white/10 sm:p-4"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl"
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
                     style={{ background: "var(--neon-cyan)", boxShadow: "0 0 20px var(--neon-cyan)" }}>
                     <MessageCircle className="h-4 w-4 text-background" />
                   </div>
                   <div>
-                    <div className="text-xs text-muted-foreground">WhatsApp</div>
-                    <div className="text-sm font-medium">Chat with me</div>
+                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">WhatsApp</div>
+                    <div className="text-xs font-medium sm:text-sm">Chat with me</div>
                   </div>
                 </a>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <Field label="Name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} />
               <Field label="Email" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} />
               <Field label="Message" textarea value={form.message} onChange={(v) => setForm({ ...form, message: v })} />
-              <MagneticButton onClick={() => handleSubmit(new Event("submit") as unknown as React.FormEvent)}>
-                Send message <Send className="h-4 w-4" />
-              </MagneticButton>
+              <button
+                type="submit"
+                className="relative w-full overflow-hidden rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-[0_0_30px_oklch(0.65_0.28_305/0.5)] transition-all duration-300 hover:shadow-[0_0_50px_oklch(0.65_0.28_305/0.8)] sm:w-auto"
+                style={{ background: "linear-gradient(135deg, var(--neon-purple), var(--neon-blue))" }}
+              >
+                <span className="inline-flex items-center justify-center gap-2">
+                  Send message <Send className="h-4 w-4" />
+                </span>
+              </button>
             </form>
           </div>
         </motion.div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground md:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 text-xs text-muted-foreground sm:mt-12 sm:flex-row sm:text-sm">
           <div>© {new Date().getFullYear()} Jayesh Mal. Crafted with care.</div>
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-neon-cyan" />

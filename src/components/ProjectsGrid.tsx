@@ -15,10 +15,10 @@ const projects = [
 
 export function ProjectsGrid() {
   return (
-    <section id="work" className="relative px-5 py-32">
+    <section id="work" className="relative px-5 py-20 sm:py-28 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader eyebrow="Selected Work" title={<>Real products. <span className="gradient-text">Real users.</span></>} />
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} {...p} index={i} />
           ))}
@@ -64,13 +64,13 @@ function ProjectCard({ title, tag, url, img, hue, index }: typeof projects[0] & 
           </div>
         </div>
       </div>
-      <div className="relative flex items-center justify-between p-6">
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">{tag}</div>
-          <div className="mt-1.5 text-xl font-semibold">{title}</div>
+      <div className="relative flex items-center justify-between gap-3 p-5 sm:p-6">
+        <div className="min-w-0">
+          <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:text-[11px]">{tag}</div>
+          <div className="mt-1.5 truncate text-lg font-semibold sm:text-xl">{title}</div>
         </div>
         <div
-          className="flex h-11 w-11 items-center justify-center rounded-full glass transition-transform duration-500 group-hover:rotate-45"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full glass transition-transform duration-500 group-hover:rotate-45 sm:h-11 sm:w-11"
         >
           <ArrowUpRight className="h-4 w-4" />
         </div>
