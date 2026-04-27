@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, MessageCircle, Send } from "lucide-react";
-import { MagneticButton } from "./MagneticButton";
+
 
 const EMAIL = "jayeshneo07@gmail.com";
 const WHATSAPP = "https://wa.me/919999999999?text=Hi%20Jayesh%2C%20I%20saw%20your%20portfolio%20and%20I%20am%20interested%20in%20your%20services";
