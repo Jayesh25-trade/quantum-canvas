@@ -12,7 +12,7 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = encodeURIComponent(`Project inquiry from ${form.name || "your portfolio"}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name}\n${form.email}`);
+    const body = encodeURIComponent(`${form.message}\n\nFrom: ${form.name}\n${form.email}`);
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   };
 
@@ -45,7 +45,7 @@ export function Contact() {
                 Let's build something <span className="gradient-text">powerful</span>.
               </h2>
               <p className="mt-5 max-w-md text-muted-foreground">
-                Have an idea, a product, or a problem worth solving? Drop a message — I usually reply within a few hours.
+                Have an idea, a product, or a problem worth solving? Drop a message and I usually reply within a few hours.
               </p>
 
               <div className="mt-8 space-y-3">
