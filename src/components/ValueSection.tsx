@@ -11,10 +11,10 @@ const values = [
 
 export function ValueSection() {
   return (
-    <section className="relative px-5 py-32">
+    <section className="relative px-5 py-20 sm:py-28 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader eyebrow="What I do" title={<>Built for <span className="gradient-text">impact</span>, not just looks.</>} />
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {values.map((v, i) => (
             <ValueCard key={v.title} {...v} index={i} />
           ))}
@@ -86,7 +86,7 @@ export function SectionHeader({ eyebrow, title }: { eyebrow: string; title: Reac
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-4 inline-block rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-muted-foreground"
+        className="mb-4 inline-block rounded-full glass px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground sm:text-[11px]"
       >
         {eyebrow}
       </motion.div>
@@ -95,7 +95,7 @@ export function SectionHeader({ eyebrow, title }: { eyebrow: string; title: Reac
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mx-auto max-w-3xl text-balance text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
+        className="mx-auto max-w-3xl text-balance text-3xl font-bold leading-tight sm:text-4xl md:text-5xl lg:text-6xl"
       >
         {title}
       </motion.h2>
