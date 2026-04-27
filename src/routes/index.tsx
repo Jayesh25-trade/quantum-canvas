@@ -1,5 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  component: () => <h1>Home Page</h1>,
+  component: () => {
+    return (
+      <div style={{ padding: "40px", fontSize: "24px" }}>
+        🚀 Your app is working!
+      </div>
+    );
+  },
 });
