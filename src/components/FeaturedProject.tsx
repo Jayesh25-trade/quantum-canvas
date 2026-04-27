@@ -48,7 +48,7 @@ export function FeaturedProject() {
           <div className="relative aspect-[16/9] overflow-hidden">
             <motion.img
               src={smartbill}
-              alt="Maheshwari Smart Bill — invoicing SaaS dashboard"
+              alt="Maheshwari Smart Bill invoicing dashboard"
               loading="lazy"
               width={1280}
               height={800}

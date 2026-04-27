@@ -15,13 +15,13 @@ import { Contact } from "@/components/Contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jayesh Mal — Full-Stack Developer & Digital Product Builder" },
+      { title: "Jayesh Mal · Full-Stack Developer & Digital Product Builder" },
       {
         name: "description",
         content:
           "I build next-generation websites and web apps that are fast, scalable, and designed to convert. Full-stack developer specializing in React, Next.js, and modern SaaS products.",
       },
-      { property: "og:title", content: "Jayesh Mal — Full-Stack Developer" },
+      { property: "og:title", content: "Jayesh Mal · Full-Stack Developer" },
       { property: "og:description", content: "Fast, scalable web apps designed to convert. View selected work and get in touch." },
       { property: "og:type", content: "website" },
     ],

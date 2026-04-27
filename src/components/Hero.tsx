@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 
 const headline = ["I", "build", "next-generation", "websites", "&", "web", "apps"];
@@ -46,14 +46,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-7 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs"
+          className="mb-7 inline-flex items-center gap-2.5 rounded-full glass px-4 py-1.5 text-xs"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-neon-cyan opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-neon-cyan" />
           </span>
           <span className="text-muted-foreground">Available for new projects</span>
-          <Sparkles className="h-3 w-3 text-neon-cyan" />
         </motion.div>
 
         <h1 className="mx-auto max-w-5xl text-balance text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl">
@@ -78,7 +77,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.1 }}
           className="mx-auto mt-7 max-w-xl text-base text-muted-foreground md:text-lg"
         >
-          Fast, scalable, and designed to convert. I'm Jayesh Mal — a full-stack developer crafting
+          Fast, scalable, and designed to convert. I'm Jayesh Mal, a full-stack developer crafting
           digital products that feel alive.
         </motion.p>
 
@@ -96,72 +95,33 @@ export function Hero() {
           </MagneticButton>
         </motion.div>
 
-        {/* Floating preview cards */}
-        <div className="pointer-events-none mt-20 hidden md:block">
-          <motion.div
-            initial={{ opacity: 0, x: -50, y: 20 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.5, duration: 1 }}
-            style={{ x: useTransform(sx, (v) => v * -40), y: useTransform(sy, (v) => v * -20) }}
-            className="absolute -left-4 top-1/3 w-56 rotate-[-8deg]"
-          >
-            <FloatCard label="Smart Bill" sub="Invoicing SaaS" hue="purple" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50, y: 20 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.7, duration: 1 }}
-            style={{ x: useTransform(sx, (v) => v * 40), y: useTransform(sy, (v) => v * 20) }}
-            className="absolute -right-2 top-1/4 w-56 rotate-[6deg]"
-          >
-            <FloatCard label="Fooddzz" sub="Delivery App" hue="cyan" />
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.9, duration: 1 }}
-            style={{ x: useTransform(sx, (v) => v * 20), y: useTransform(sy, (v) => v * -30) }}
-            className="absolute -bottom-10 left-1/2 w-56 -translate-x-1/2 rotate-[-2deg]"
-          >
-            <FloatCard label="Formomatic" sub="PDF Pro" hue="pink" />
-          </motion.div>
-        </div>
+        {/* Quick credibility row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+          className="mx-auto mt-20 flex max-w-3xl flex-wrap items-center justify-center gap-x-10 gap-y-4 text-xs uppercase tracking-[0.25em] text-muted-foreground/70"
+        >
+          <span>React</span>
+          <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+          <span>Next.js</span>
+          <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+          <span>TypeScript</span>
+          <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+          <span>Node</span>
+          <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
+          <span>Supabase</span>
+        </motion.div>
       </div>
 
       {/* Scroll cue */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-muted-foreground md:block"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[10px] uppercase tracking-[0.4em] text-muted-foreground/60 md:block"
       >
         scroll
       </motion.div>
     </section>
-  );
-}
-
-function FloatCard({ label, sub, hue }: { label: string; sub: string; hue: "purple" | "cyan" | "pink" }) {
-  const colors: Record<string, string> = {
-    purple: "var(--neon-purple)",
-    cyan: "var(--neon-cyan)",
-    pink: "var(--neon-pink)",
-  };
-  return (
-    <div className="glass-strong relative rounded-2xl p-4 shadow-2xl">
-      <div className="mb-3 flex items-center gap-1.5">
-        <span className="h-2 w-2 rounded-full bg-red-400/60" />
-        <span className="h-2 w-2 rounded-full bg-yellow-400/60" />
-        <span className="h-2 w-2 rounded-full bg-green-400/60" />
-      </div>
-      <div
-        className="mb-3 h-20 rounded-lg"
-        style={{
-          background: `linear-gradient(135deg, ${colors[hue]} 0%, transparent 100%)`,
-          opacity: 0.5,
-        }}
-      />
-      <div className="text-sm font-semibold">{label}</div>
-      <div className="text-xs text-muted-foreground">{sub}</div>
-    </div>
   );
 }
